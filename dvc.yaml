@@ -27,7 +27,7 @@ stages:
     cmd: python src/model_building.py
     deps:
     - data/processed
-    -src/model_building.py
+    - src/model_building.py
     # params:
     # - model_building.n_estimators
     # - model_building.random_state
