@@ -6,13 +6,12 @@ from nltk.stem.porter import PorterStemmer
 from nltk.corpus import stopwords
 import string
 import nltk
-
 nltk.download('stopwords')
 nltk.download('punkt')
 
 # Ensure the "logs" directory exists
 log_dir = 'logs'
-os.mkdir(log_dir, exist_ok = True)
+os.makedirs(log_dir, exist_ok=True)
 
 # Setting up logger
 logger = logging.getLogger('data_preprocessing')
@@ -32,9 +31,10 @@ file_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 logger.addHandler(file_handler)
 
-def tranform_text(text):
+def transform_text(text):
     """
-    Transforms the input text by converting it to lowercase, tokenizing, removing stopwords and punctuation, and stemming.
+    Transforms the input text by converting it to lowercase, tokenizing, removing stopwords and punctuation,
+    and stemming.
     """
     ps = PorterStemmer()
     #Convert to lowercase
@@ -52,7 +52,8 @@ def tranform_text(text):
 
 def preprocess_df(df, text_column='text', target_column='target'):
     """
-    Preprocesses the DataFrame by encoding the target column, removing duplicates, and transforming the text column.
+    Preprocesses the DataFrame by encoding the target column, removing duplicates, and transforming the text
+    column.
     """
     try:
         logger. debug('Strating preprocessing for DataFrame')
